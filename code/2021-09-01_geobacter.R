@@ -37,8 +37,10 @@ data_processed %>%
              y = intensity_bl_corrected, 
              color = as.character(Wavelength)))+
   geom_line()+
-  facet_wrap(~sample_name, scales = "free_y")+
-  labs(color = "wavelength, nm",
+  facet_wrap(~sample_name)+
+  labs(x = "time elapsed, hours",
+       y = "intensity (blank corrected)",
+       color = "wavelength, nm",
        title = "Geobacter, 2021-09-01")+
   theme_bw()
 

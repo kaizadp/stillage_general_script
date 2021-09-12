@@ -37,9 +37,12 @@ data_processed %>%
              y = intensity_bl_corrected, 
              color = as.character(Wavelength)))+
   geom_line()+
-  facet_wrap(~sample_name, scales = "free_y")+
-  labs(color = "wavelength, nm",
+  facet_wrap(~sample_name)+
+  labs(x = "time elapsed, hours",
+       y = "intensity (blank corrected)",
+       color = "wavelength, nm",
        title = "Shewanella, 2021-08-30")+
+#  scale_y_continuous(breaks = seq(0, 1.25, by = 0.25), labels = seq(0, 1.25, by = 0.25))+
   theme_bw()
 
 ggsave("output/2021-08-30_shewy.png")
