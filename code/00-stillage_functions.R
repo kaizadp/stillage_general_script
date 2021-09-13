@@ -20,7 +20,6 @@ process_wellplate_layout = function(dat_layout){
 # PROCESS DATA ------------------------------------------------------------
 
 process_data = function(dat_data, dat_layout){
-  
   dat_data %>% 
     filter(!is.na(Time)) %>% 
     mutate(Time2 = Time) %>% 
@@ -30,11 +29,11 @@ process_data = function(dat_data, dat_layout){
     tidyr::gather(well_number, intensity, -c(Wavelength, HOURS)) %>% 
     filter(!is.na(intensity)) %>% 
     left_join(layout_processed) %>% 
-    group_by(Wavelength, HOURS, sample_name) %>% 
-    dplyr::summarise(intensity = mean(intensity),
-                     intensity = round(intensity, 3)) %>% 
     separate(sample_name, sep = "_", into = c("sample_name", "media_type")) %>% 
     mutate(media_type = if_else(is.na(media_type), "sample", "blank")) %>% 
+    group_by(Wavelength, HOURS, sample_name, media_type) %>% 
+    dplyr::summarise(intensity = mean(intensity),
+                     intensity = round(intensity, 3)) %>% 
     pivot_wider(
       names_from = media_type,
       values_from = intensity,

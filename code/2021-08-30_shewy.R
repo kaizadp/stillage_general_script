@@ -38,11 +38,28 @@ data_processed %>%
              color = as.character(Wavelength)))+
   geom_line()+
   facet_wrap(~sample_name)+
-  labs(x = "time elapsed, hours",
-       y = "intensity (blank corrected)",
-       color = "wavelength, nm",
-       title = "Shewanella, 2021-08-30")+
+  labs(x = "Time Elapsed, Hours",
+       y = "Intensity (blank corrected)",
+       color = "Wavelength, nm",
+       title = "Shewanella, Growth on Stillage")+
 #  scale_y_continuous(breaks = seq(0, 1.25, by = 0.25), labels = seq(0, 1.25, by = 0.25))+
-  theme_bw()
+  theme_bw() %+replace%
+  theme(legend.text = element_text(size = 15),
+        legend.key.size = unit(1.5, 'lines'),
+        legend.title = element_text(hjust = .5, size = 20, face = "bold"),
+        plot.title = element_text(hjust = .5, size = 20, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5),
+        axis.text = element_text(size = 15, color = "black"),
+        axis.title = element_text(size = 20, face = "bold", color = "black"),
+        
+        # formatting for facets
+        panel.background = element_blank(),
+        strip.background = element_rect(colour="white", fill="white"), #facet formatting
+        panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
+        panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
+        strip.text.x = element_text(size=15, face="bold"), #facet labels
+        strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
+  )
 
 ggsave("output/2021-08-30_shewy.png")
+
