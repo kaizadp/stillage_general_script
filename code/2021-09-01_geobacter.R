@@ -42,6 +42,7 @@ data_processed %>%
        y = "intensity (blank corrected)",
        color = "wavelength, nm",
        title = "Geobacter, Growth on Stillage")+
+  #  scale_y_continuous(breaks = seq(0, 1.25, by = 0.25), labels = seq(0, 1.25, by = 0.25))+
  
 theme_bw() %+replace%
   theme(legend.text = element_text(size = 15),
@@ -62,6 +63,6 @@ theme_bw() %+replace%
   )
 
 
-ggsave("output/2021-09-01_geobacter.png")
+ggsave("output/2021-09-01_geobacter_DMR.png")
 
 
