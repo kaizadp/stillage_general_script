@@ -17,10 +17,10 @@ source("code/00-stillage_functions.R")
 #
 # III. LOAD FILES --------------------------------------------------------------
 # well plate layout, in wide-form
-dat_layout = read_excel("data/2021-09-01_geobacter_layout.xlsx", na = "")
+dat_layout = read_excel("data/PCA and SD-1 plate experiment_layout.xlsx", na = "")
 
 # intensities data, in  wide-form
-dat_data = read.csv("data/2021-09-01_geobacter_data.csv", na = "")
+dat_data = read.csv("data/2021_12_21_21_DMR_PCA_geo_data.csv", na = "")
 
 #
 # IV. PROCESS DATA -------------------------------------------------------------
@@ -63,6 +63,6 @@ theme_bw() %+replace%
   )
 
 
-ggsave("output/2021-09-01_geobacter_DMR.png")
+ggsave("output/2021-12-21_geobacter_DMR.png")
 
 
