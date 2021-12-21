@@ -38,10 +38,10 @@ data_processed %>%
              color = as.character(Wavelength)))+
   geom_line()+
   facet_wrap(~sample_name)+
-  labs(x = "time elapsed, hours",
-       y = "intensity (blank corrected)",
+  labs(x = "Time Elapsed, (Hours)",
+       y = "Optical Density",
        color = "wavelength, nm",
-       title = "Geobacter, Growth on DMR and various Mediums ")+
+       title = "Geobacter, Growth on DMR and Various Mediums ")+
   #  scale_y_continuous(breaks = seq(0, 1.25, by = 0.25), labels = seq(0, 1.25, by = 0.25))+
  
 theme_bw() %+replace%
