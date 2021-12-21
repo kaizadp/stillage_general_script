@@ -41,7 +41,7 @@ data_processed %>%
   labs(x = "time elapsed, hours",
        y = "intensity (blank corrected)",
        color = "wavelength, nm",
-       title = "Geobacter, Growth on Stillage")+
+       title = "Geobacter, Growth on DMR and various Mediums ")+
   #  scale_y_continuous(breaks = seq(0, 1.25, by = 0.25), labels = seq(0, 1.25, by = 0.25))+
  
 theme_bw() %+replace%
