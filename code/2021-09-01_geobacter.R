@@ -37,9 +37,9 @@ data_processed %>%
              y = intensity_bl_corrected, 
              color = as.character(Wavelength)))+
   geom_line()+
-  facet_wrap(~sample_name)+
+  facet_wrap(labeller = labeller(~sample_name = label_wrap_gen(width = 16)))+
   labs(x = "time elapsed, hours",
-       y = "intensity (blank corrected)",
+       y = "Optical Density @ 730 nm",
        color = "wavelength, nm",
        title = "Geobacter, Growth on Stillage")+
   #  scale_y_continuous(breaks = seq(0, 1.25, by = 0.25), labels = seq(0, 1.25, by = 0.25))+
@@ -50,7 +50,7 @@ theme_bw() %+replace%
         legend.title = element_text(hjust = .5, size = 20, face = "bold"),
         plot.title = element_text(hjust = .5, size = 20, face = "bold"),
         plot.subtitle = element_text(hjust = 0.5),
-        axis.text = element_text(size = 15, color = "black"),
+        axis.text = element_text(size = 12, color = "black"),
         axis.title = element_text(size = 20, face = "bold", color = "black"),
         
         # formatting for facets
@@ -58,11 +58,11 @@ theme_bw() %+replace%
         strip.background = element_rect(colour="white", fill="white"), #facet formatting
         panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
         panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
-        strip.text.x = element_text(size=15, face="bold"), #facet labels
+        strip.text.x = element_text(size=12, face="bold"), #facet labels
         strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
   )
 
 
-ggsave("output/2021-09-01_geobacter_DMR.png")
+ggsave("output/2021-09-01_geobacter_w_o_DMR_730_only.png")
 
 
