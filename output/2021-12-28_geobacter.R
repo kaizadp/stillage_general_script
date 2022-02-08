@@ -17,10 +17,10 @@ source("00-stillage_functions.R")
 #
 # III. LOAD FILES --------------------------------------------------------------
 # well plate layout, in wide-form
-dat_layout = read_excel("data/PCA and SD-1 plate experiment_layout.xlsx", na = "")
+dat_layout = read_excel("Depleted_DMR_R_plate_layout_22_2_1.xlsx", na = "")
 
 # intensities data, in  wide-form
-dat_data = read.csv("data/2021_12_21_21_DMR_PCA_geo_data.csv", na = "")
+dat_data = read.csv("DMR_growth_plate1_data_Rstudio_copy.csv", na = "")
 
 #
 # IV. PROCESS DATA -------------------------------------------------------------
@@ -34,7 +34,7 @@ data_processed = process_data(dat_data, dat_layout)
 # V. PLOT ----------------------------------------------------------------------
 data_processed %>% 
   ggplot(aes(x = HOURS, 
-             y = intensity_bl_corrected, 
+             y = intensity_Blk_corrected, 
              color = as.character(Wavelength)))+
   geom_line()+
   facet_wrap(~ sample_name, labeller = labeller(sample_name = label_wrap_gen(width = 16)))+
@@ -72,7 +72,7 @@ ggsave("output/2021-12-22_geobacter_DMR.png")
 data_processed %>% 
   filter(grepl("SD-1", sample_name)) %>%
   ggplot(aes(x = HOURS, 
-             y = intensity_bl_corrected, 
+             y = intensity_Blk_corrected, 
              color = as.character(Wavelength)))+
   geom_line()+
   facet_wrap(~ sample_name, labeller = labeller(sample_name = label_wrap_gen(width = 16)))+
@@ -112,11 +112,11 @@ data_processed %>%
 
 
 # well plate layout, in wide-form
-dat_layout = read_excel("data/PCA and SD-1 plate experiment_layout.xlsx", na = "")
+dat_layout = read_excel("Depleted_DMR_R_plate_layout_22_2_1.xlsx", na = "")
 
 # intensities data, in  wide-form
-dat_data1 = read.csv("data/2021_12_21_21_DMR_PCA_geo_data.csv", na = "")
-dat_data2 = read.csv("data/2021_12_27_geo_PCA_geo_growth_on_DMR_plate_2.csv", na = "")
+dat_data1 = read.csv("DMR_growth_plate1_data_Rstudio_copy.csv", na = "")
+dat_data2 = read.csv("DMR_growth_plate2_data_Rstudio_copy.csv", na = "")
 
 layout_processed = process_wellplate_layout(dat_layout)
 
@@ -142,7 +142,7 @@ data_processed_combined =
 data_processed_combined %>% 
   filter(grepl("SD-1", sample_name)) %>% 
   ggplot(aes(x = HOURS, 
-             y = intensity_bl_corrected, 
+             y = intensity_Blk_corrected, 
              color = as.character(Wavelength)))+
   geom_line()+
   facet_wrap(~ sample_name, labeller = labeller(sample_name = label_wrap_gen(width = 16)))+
