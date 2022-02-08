@@ -63,8 +63,8 @@ data_processed %>%
   )
 
 
-ggsave("output/2021-12-22_geobacter_w_o_DMR_730_only.png")
-ggsave("output/2021-12-22_geobacter_DMR.png")
+#ggsave("output/2021-12-22_geobacter_w_o_DMR_730_only.png")
+#ggsave("output/2021-12-22_geobacter_DMR.png")
 
 ## graph only SD-1 
 
@@ -170,7 +170,7 @@ data_processed_combined %>%
         strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
   )
 
-ggsave("output/2021-12-28_geobacter_DMR_plate.png")
+#ggsave("output/2021-12-28_geobacter_DMR_plate.png")
 
 crunch::write.csv(data_processed_combined, paste0("data_processed_combined",".csv"), row.names = F, na="")
 
